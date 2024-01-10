@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="titre" type="xsd:string"/>
+  <xsd:element name="auteur" type="xsd:string"/>
+  <xsd:element name="nb_pages" type="xsd:integer"/>
+  <xsd:element name="editeur" type="xsd:string"/>
+  <xsd:element name="lieu_edition" type="xsd:string"/>
+  <xsd:element name="lieu_impression" type="xsd:string"/>
+  <xsd:element name="ISBN" type="xsd:string"/>
+  <xsd:element name="avis" type="xsd:string"/>
+
+  <xsd:element name="livre">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="titre"/>
+        <xsd:element ref="auteur" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element ref="tome" minOccurs="0" maxOccurs="unbounded"/>
+
+        <xsd:element name="edition">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="editeur"/>
+              <xsd:element ref="lieu_edition"/>  <xsd:element ref="lieu_impression"/>  <xsd:element ref="ISBN"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element ref="avis" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="tome">
+    <xsd:complexType>
+      <xsd:attribute name="nb_pages" type="xsd:integer" use="required"/>  <xsd:attribute name="soustitre" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
+
+
+
+<!--     ok     
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="fr"> Schéma XML pour bibliography.xml </xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="bibliography" type="Bibliography" />
+  <xsd:complexType name="Bibliography">
+    <xsd:sequence>
+      <xsd:element name="book" minOccurs="1" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="title" type="xsd:string" />
+            <xsd:element name="author" type="xsd:string" />
+            <xsd:element name="year" type="xsd:string" />
+            <xsd:element name="publisher" type="xsd:string" />
+            <xsd:element name="isbn" type="xsd:string" />
+            <xsd:element name="url" type="xsd:string" minOccurs="0" />
+          </xsd:sequence>
+          <xsd:attribute name="key" type="xsd:NMTOKEN" use="required" />
+          <xsd:attribute name="lang" type="xsd:NMTOKEN" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+
+ -->

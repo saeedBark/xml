@@ -1,0 +1,55 @@
+<!ELEMENT Bibliographie (liver|article)*> 
+   <!ELEMENT liver (titre,auteure, tome*, edition, avis?) >
+     <!ATTLIST titre 
+       soustitre CDATA #IMPLIED>
+     <!ELEMENT titre (#PCDATA)>  
+     <!ELEMENT auteure (#PCDATA)>  
+     <!ELEMENT tome EMPTY (#PCDATA)>  
+        <!ATTLIST tome 
+            nb_pages CODATA #REQUIRED
+            soustitre CODATA #IMPLIED
+        >
+     <!ELEMENT edition (editeur, lieuEdition, lieuImpression, isbn)>
+         <!ELEMENT editeur (#PCDATA)>   
+         <!ELEMENT lieuEdition (#PCDATA)>   
+         <!ELEMENT lieuImpression (#PCDATA)>   
+         <!ELEMENT ISBN (#PCDATA)>   
+     <!ELEMENT avis (#PCDATA)>   
+   <!ELEMENT article (titre, auteure+, journal)>
+     <!ELEMENT journal (page, num_journal)>
+     <!ATTLIST journal
+     nom_journal CDATA "Feuille de chou"
+     annee (2000 | 2001 | avant_2000 | apres_)
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
